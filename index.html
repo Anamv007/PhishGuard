@@ -540,6 +540,334 @@
     .checks-grid { grid-template-columns: 1fr; }
     .summary-bar { gap: 20px; }
   }
+
+  /* ── TAB NAV ─────────────────────────────────────────────────────────────── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.6s 0.1s ease both;
+  }
+
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 20px 10px 0;
+    margin-bottom: -1px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn:hover { color: var(--text); }
+
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab-btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── README PANEL ────────────────────────────────────────────────────────── */
+  .readme-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .readme-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .readme-header svg {
+    width: 16px; height: 16px;
+    stroke: var(--text-dim);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .readme-header span {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .readme-header .readme-tab-indicator {
+    width: 36px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent);
+    margin-bottom: -16px;
+    align-self: flex-end;
+  }
+
+  .readme-body {
+    padding: 36px 40px 48px;
+  }
+
+  .rm-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .rm-desc {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rm-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .rm-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid;
+  }
+
+  .rm-badge.green  { color: var(--accent); border-color: rgba(0,245,196,0.3); background: rgba(0,245,196,0.06); }
+  .rm-badge.blue   { color: var(--accent2); border-color: rgba(0,170,255,0.3); background: rgba(0,170,255,0.06); }
+  .rm-badge.yellow { color: var(--warn); border-color: rgba(245,166,35,0.3); background: rgba(245,166,35,0.06); }
+
+  .rm-h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rm-p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  /* Code block */
+  .rm-code {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: auto;
+    margin: 14px 0;
+    position: relative;
+  }
+
+  .rm-code .code-dim { color: var(--text-dim); }
+  .rm-code .code-accent { color: var(--accent); }
+  .rm-code .code-blue { color: var(--accent2); }
+
+  /* Feature list */
+  .rm-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+
+  .rm-feat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s;
+  }
+
+  .rm-feat:hover { border-color: rgba(0,245,196,0.25); }
+
+  .rm-feat-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+  }
+
+  .rm-feat-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* Check table */
+  .rm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 14px 0;
+  }
+
+  .rm-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .rm-table td {
+    padding: 10px 14px;
+    color: var(--text);
+    border-bottom: 1px solid rgba(30,45,61,0.6);
+    vertical-align: middle;
+  }
+
+  .rm-table tr:last-child td { border-bottom: none; }
+  .rm-table tr:hover td { background: rgba(0,245,196,0.02); }
+
+  .sev-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .sev-high   { background: rgba(255,59,92,0.12);  color: var(--danger); border: 1px solid rgba(255,59,92,0.3); }
+  .sev-medium { background: rgba(245,166,35,0.10); color: var(--warn);   border: 1px solid rgba(245,166,35,0.3); }
+  .sev-low    { background: rgba(0,245,196,0.07);  color: var(--accent); border: 1px solid rgba(0,245,196,0.2); }
+
+  /* Verdict table */
+  .vt-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  .vt-safe       { background: rgba(0,245,196,0.08);  color: var(--accent); border: 1px solid rgba(0,245,196,0.25); }
+  .vt-suspicious { background: rgba(245,166,35,0.08); color: var(--warn);   border: 1px solid rgba(245,166,35,0.25); }
+  .vt-dangerous  { background: rgba(255,59,92,0.08);  color: var(--danger); border: 1px solid rgba(255,59,92,0.25); }
+
+  /* Steps */
+  .rm-steps { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+
+  .rm-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s;
+  }
+
+  .rm-step:hover { border-color: rgba(0,245,196,0.2); }
+
+  .rm-step-num {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 24px;
+    margin-top: 1px;
+  }
+
+  .rm-step-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+  .rm-step-desc  { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+  /* Stack pills */
+  .rm-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+
+  .rm-pill {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent2);
+    background: rgba(0,170,255,0.07);
+    border: 1px solid rgba(0,170,255,0.18);
+    border-radius: 8px;
+    padding: 5px 14px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Disclaimer box */
+  .rm-warn-box {
+    background: rgba(245,166,35,0.05);
+    border: 1px solid rgba(245,166,35,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 14px 0;
+  }
+
+  .rm-warn-box p { font-size: 13px; color: var(--warn); line-height: 1.65; }
+
+  /* README responsive */
+  @media (max-width: 600px) {
+    .readme-body { padding: 24px 18px 36px; }
+    .rm-feature-grid { grid-template-columns: 1fr; }
+    .rm-table { font-size: 12px; }
+    .rm-table th, .rm-table td { padding: 8px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -554,34 +882,245 @@
     <p class="subtitle">// Real-time URL heuristic analysis — no API required</p>
   </header>
 
-  <div class="input-card">
-    <label class="input-label">Target URL</label>
-    <div class="input-row">
-      <input
-        class="url-input"
-        type="text"
-        id="urlInput"
-        placeholder="https://example.com/login"
-        autocomplete="off"
-        spellcheck="false"
-      />
-      <button class="scan-btn" id="scanBtn" onclick="runScan()">⟶ Analyze</button>
+  <!-- Tab Nav -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('analyzer', this)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Analyzer
+    </button>
+    <button class="tab-btn" onclick="switchTab('readme', this)" style="margin-left:24px;">
+      <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      README
+    </button>
+  </nav>
+
+  <!-- Analyzer Panel -->
+  <div id="panel-analyzer" class="tab-panel active">
+    <div class="input-card">
+      <label class="input-label">Target URL</label>
+      <div class="input-row">
+        <input
+          class="url-input"
+          type="text"
+          id="urlInput"
+          placeholder="https://example.com/login"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="scan-btn" id="scanBtn" onclick="runScan()">⟶ Analyze</button>
+      </div>
+      <div class="examples">
+        <span class="examples-label">Try:</span>
+        <span class="example-chip" onclick="loadExample('http://192.168.1.1/secure-login/paypal/verify')">IP URL</span>
+        <span class="example-chip" onclick="loadExample('https://secure.login.paypa1-verify.com/account/update')">Typosquat</span>
+        <span class="example-chip" onclick="loadExample('https://www.google.com')">Legit URL</span>
+        <span class="example-chip" onclick="loadExample('http://amaz0n-secure.tk/login?user=verify@account')">Phishing</span>
+      </div>
     </div>
-    <div class="examples">
-      <span class="examples-label">Try:</span>
-      <span class="example-chip" onclick="loadExample('http://192.168.1.1/secure-login/paypal/verify')">IP URL</span>
-      <span class="example-chip" onclick="loadExample('https://secure.login.paypa1-verify.com/account/update')">Typosquat</span>
-      <span class="example-chip" onclick="loadExample('https://www.google.com')">Legit URL</span>
-      <span class="example-chip" onclick="loadExample('http://amaz0n-secure.tk/login?user=verify@account')">Phishing</span>
-    </div>
+    <div id="results" class="hidden"></div>
   </div>
 
-  <!-- Results area -->
-  <div id="results" class="hidden"></div>
+  <!-- README Panel -->
+  <div id="panel-readme" class="tab-panel">
+    <div class="readme-wrap">
+
+      <!-- GitHub-style README header -->
+      <div class="readme-header">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>README</span>
+        <div class="readme-tab-indicator"></div>
+      </div>
+
+      <div class="readme-body">
+
+        <!-- Title -->
+        <div class="rm-title">🛡️ PhishGuard</div>
+        <p class="rm-desc">A real-time, client-side URL threat analyzer that detects phishing, typosquatting, and suspicious links using 11 heuristic checks — with zero APIs, zero server calls, and zero data leaving your browser.</p>
+
+        <!-- Badges -->
+        <div class="rm-badges">
+          <span class="rm-badge green">No API Required</span>
+          <span class="rm-badge blue">100% Client-Side</span>
+          <span class="rm-badge green">Vanilla JS</span>
+          <span class="rm-badge yellow">v2.0</span>
+          <span class="rm-badge blue">MIT License</span>
+        </div>
+
+        <!-- About -->
+        <div class="rm-h2">📌 About</div>
+        <p class="rm-p">PhishGuard analyzes URLs using a weighted heuristic scoring engine. Each URL is passed through 11 security checks — from HTTPS verification to brand impersonation detection. The total score (0–100) determines the verdict: <strong style="color:var(--accent)">Likely Safe</strong>, <strong style="color:var(--warn)">Suspicious</strong>, or <strong style="color:var(--danger)">Phishing Risk</strong>.</p>
+        <p class="rm-p">No external calls are ever made. Everything runs locally in the browser, making it instant and completely private.</p>
+
+        <!-- File structure -->
+        <div class="rm-h2">📁 File Structure</div>
+        <div class="rm-code">
+<span class="code-blue">PhishGuard/</span>
+<span class="code-dim">└──</span> <span class="code-accent">index.html</span>    <span class="code-dim">← Entire app (HTML + CSS + JS, self-contained)</span>
+        </div>
+        <p class="rm-p" style="color:var(--text-dim); font-size:13px;">Single-file architecture. No build step, no dependencies, no package.json. Drop it anywhere and open it.</p>
+
+        <!-- Features -->
+        <div class="rm-h2">⚡ Features</div>
+        <div class="rm-feature-grid">
+          <div class="rm-feat">
+            <div class="rm-feat-title">11-Point Heuristics</div>
+            <div class="rm-feat-desc">Covers structure, patterns, keywords, and known abuse vectors.</div>
+          </div>
+          <div class="rm-feat">
+            <div class="rm-feat-title">Risk Score 0–100</div>
+            <div class="rm-feat-desc">Weighted scoring system with animated SVG ring indicator.</div>
+          </div>
+          <div class="rm-feat">
+            <div class="rm-feat-title">Brand Impersonation</div>
+            <div class="rm-feat-desc">Detects typosquat variants of PayPal, Google, Amazon, and more.</div>
+          </div>
+          <div class="rm-feat">
+            <div class="rm-feat-title">Legit Domain Bonus</div>
+            <div class="rm-feat-desc">Known good domains get a −30 score reduction to cut false positives.</div>
+          </div>
+          <div class="rm-feat">
+            <div class="rm-feat-title">Zero Dependencies</div>
+            <div class="rm-feat-desc">Pure HTML/CSS/JS. No npm, no frameworks, no external scripts.</div>
+          </div>
+          <div class="rm-feat">
+            <div class="rm-feat-title">Fully Offline</div>
+            <div class="rm-feat-desc">Works without internet (after font load). Your URLs go nowhere.</div>
+          </div>
+        </div>
+
+        <!-- Security Checks -->
+        <div class="rm-h2">🔍 Security Checks (11 Heuristics)</div>
+        <table class="rm-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Check</th>
+              <th>Severity</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>HTTPS Protocol</td><td><span class="sev-tag sev-high">HIGH</span></td><td style="font-family:var(--mono);color:var(--danger);">20 pts</td></tr>
+            <tr><td>2</td><td>IP Address in URL</td><td><span class="sev-tag sev-high">HIGH</span></td><td style="font-family:var(--mono);color:var(--danger);">25 pts</td></tr>
+            <tr><td>3</td><td>URL Length (&gt;75 chars)</td><td><span class="sev-tag sev-medium">MED</span></td><td style="font-family:var(--mono);color:var(--warn);">10 pts</td></tr>
+            <tr><td>4</td><td>@ Symbol in URL</td><td><span class="sev-tag sev-high">HIGH</span></td><td style="font-family:var(--mono);color:var(--danger);">15 pts</td></tr>
+            <tr><td>5</td><td>Subdomain Depth (&gt;2)</td><td><span class="sev-tag sev-medium">MED</span></td><td style="font-family:var(--mono);color:var(--warn);">15 pts</td></tr>
+            <tr><td>6</td><td>Suspicious Keywords</td><td><span class="sev-tag sev-medium">MED</span></td><td style="font-family:var(--mono);color:var(--warn);">15 pts</td></tr>
+            <tr><td>7</td><td>Hyphens in Domain (≥2)</td><td><span class="sev-tag sev-low">LOW</span></td><td style="font-family:var(--mono);color:var(--accent);">10 pts</td></tr>
+            <tr><td>8</td><td>Suspicious TLD</td><td><span class="sev-tag sev-medium">MED</span></td><td style="font-family:var(--mono);color:var(--warn);">15 pts</td></tr>
+            <tr><td>9</td><td>Brand Impersonation</td><td><span class="sev-tag sev-high">HIGH</span></td><td style="font-family:var(--mono);color:var(--danger);">25 pts</td></tr>
+            <tr><td>10</td><td>Redirect Indicators</td><td><span class="sev-tag sev-medium">MED</span></td><td style="font-family:var(--mono);color:var(--warn);">10 pts</td></tr>
+            <tr><td>11</td><td>Known Legit Domain Bonus</td><td><span class="sev-tag sev-low">LOW</span></td><td style="font-family:var(--mono);color:var(--accent);">−30 pts</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Scoring -->
+        <div class="rm-h2">📊 Verdict System</div>
+        <table class="rm-table">
+          <thead>
+            <tr><th>Score</th><th>Verdict</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-family:var(--mono);color:var(--accent);">0 – 25</td>
+              <td><span class="vt-badge vt-safe">LIKELY SAFE</span></td>
+              <td style="color:var(--text-dim);">Low risk — URL appears legitimate</td>
+            </tr>
+            <tr>
+              <td style="font-family:var(--mono);color:var(--warn);">26 – 55</td>
+              <td><span class="vt-badge vt-suspicious">SUSPICIOUS</span></td>
+              <td style="color:var(--text-dim);">Some red flags — proceed with caution</td>
+            </tr>
+            <tr>
+              <td style="font-family:var(--mono);color:var(--danger);">56 – 100</td>
+              <td><span class="vt-badge vt-dangerous">PHISHING RISK</span></td>
+              <td style="color:var(--text-dim);">High confidence threat — do not visit</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- How to Use -->
+        <div class="rm-h2">🚀 How to Use</div>
+        <div class="rm-steps">
+          <div class="rm-step">
+            <div class="rm-step-num">01</div>
+            <div>
+              <div class="rm-step-title">Paste a URL in the Analyzer tab</div>
+              <div class="rm-step-desc">Type or paste any URL into the input field. Use the example chips to try built-in test cases.</div>
+            </div>
+          </div>
+          <div class="rm-step">
+            <div class="rm-step-num">02</div>
+            <div>
+              <div class="rm-step-title">Click Analyze or press Enter</div>
+              <div class="rm-step-desc">PhishGuard runs all 11 checks instantly — no network requests, no waiting.</div>
+            </div>
+          </div>
+          <div class="rm-step">
+            <div class="rm-step-num">03</div>
+            <div>
+              <div class="rm-step-title">Read the risk score and verdict</div>
+              <div class="rm-step-desc">The animated ring shows your 0–100 score. The verdict card gives the final judgment.</div>
+            </div>
+          </div>
+          <div class="rm-step">
+            <div class="rm-step-num">04</div>
+            <div>
+              <div class="rm-step-title">Review detailed check results</div>
+              <div class="rm-step-desc">Each of the 11 checks shows PASS / HIGH / MED with a plain-English explanation.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="rm-h2">🧱 Tech Stack</div>
+        <div class="rm-pills">
+          <span class="rm-pill">HTML5</span>
+          <span class="rm-pill">CSS3</span>
+          <span class="rm-pill">Vanilla JavaScript</span>
+          <span class="rm-pill">Share Tech Mono</span>
+          <span class="rm-pill">Syne (Google Fonts)</span>
+          <span class="rm-pill">No frameworks</span>
+          <span class="rm-pill">No APIs</span>
+        </div>
+
+        <!-- Deploy -->
+        <div class="rm-h2">🌐 Deployment</div>
+        <p class="rm-p">PhishGuard is a single <code style="font-family:var(--mono);font-size:12px;color:var(--accent2);">index.html</code> file. Deploy it anywhere static hosting is supported:</p>
+        <div class="rm-code">
+<span class="code-dim"># GitHub Pages (already live)</span>
+<span class="code-accent">https://anamv007.github.io/PhishGuard/</span>
+
+<span class="code-dim"># Or run locally — just open the file</span>
+<span class="code-blue">open index.html</span>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="rm-h2">⚠️ Limitations</div>
+        <div class="rm-warn-box">
+          <p>PhishGuard uses <strong>heuristic analysis only</strong> — it cannot query DNS, check SSL certificates, WHOIS data, or live threat feeds. A "Likely Safe" verdict is not a guarantee. Always verify suspicious links through multiple sources before visiting.</p>
+        </div>
+
+        <!-- Author -->
+        <div class="rm-h2">👤 Author</div>
+        <p class="rm-p">Built by <strong style="color:var(--accent);">Anam</strong> — BCA student, aspiring Cloud Security Engineer, and self-taught ethical hacker.<br>
+        <span style="font-family:var(--mono);font-size:12px;color:var(--text-dim);">// GitHub: <a href="https://github.com/anamv007" target="_blank" style="color:var(--accent2);text-decoration:none;">github.com/anamv007</a></span></p>
+
+      </div><!-- /readme-body -->
+    </div><!-- /readme-wrap -->
+  </div><!-- /panel-readme -->
 
 </div>
 
 <script>
+// ─── TAB SWITCHING ────────────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
 // ─── HEURISTIC ENGINE ────────────────────────────────────────────────────────
 
 const SUSPICIOUS_KEYWORDS = [
